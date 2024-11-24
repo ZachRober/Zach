@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-function fetchState(){
+function FetchState({render}){
     const [data, setData]=useState(null);
     const [load, setLoad]=useState(true);
-
+  
 
 
 async function fetchData(){
     try{
-        const response = await fetch("https://course-api.com/react-tours-project");
+        const response = await fetch("https://course-api.com/react-tours-project");//fetches new resource
         if(!response.ok){
             throw new Error("Bad Resource")
         }
@@ -27,12 +27,9 @@ async function fetchData(){
     },
     []);
     if (load) return <p>Loading...</p>
-return(
-    <>
-    <h1>Tour Mania LLC</h1>
-    {data.map}
-    
-    </>
-)
+    return render(data);//uses prop like structuring to pass data
+   
+   
+
 }
-export default fetchState
+export default FetchState
