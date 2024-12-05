@@ -1,7 +1,7 @@
 import React from "react";
 import ChartComponent from "./ChartComponent";
 
-const LineChart = ({ data }) => {
+const LineChart = ({ data }) => {//data passed as prop from json file in app
   const lineChartData = {
     labels: data.months,
     datasets: [
@@ -33,7 +33,7 @@ const LineChart = ({ data }) => {
     },
   };
 
-  return <ChartComponent type="line" data={lineChartData} options={lineChartOptions} />;
+  return <ChartComponent type="line" data={lineChartData} options={lineChartOptions} />;//passing back as prop to chart component
 };
 
 export default LineChart;

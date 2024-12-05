@@ -1,12 +1,12 @@
 import React from "react";
 import ChartComponent from "./ChartComponent";
 
-const BubbleChart = ({ data }) => {
+const BubbleChart = ({ data }) => {//data passed as prop from json file in app
   const bubbleChartData = {
     datasets: [
       {
         label: "Bubble Dataset",
-        data: data.sales.map((value, index) => ({
+        data: data.sales.map((value, index) => ({//describe colors for data
           x: index + 1, 
           y: value, 
           r: value / 10, 
@@ -29,7 +29,7 @@ const BubbleChart = ({ data }) => {
     },
   };
 
-  return <ChartComponent type="bubble" data={bubbleChartData} options={bubbleChartOptions} />;
+  return <ChartComponent type="bubble" data={bubbleChartData} options={bubbleChartOptions} />;//passing back as prop to chart component
 };
 
 export default BubbleChart;

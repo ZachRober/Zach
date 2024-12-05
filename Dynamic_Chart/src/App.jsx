@@ -6,10 +6,10 @@ import ScatterChart from "./components/ScatterChart";
 import BubbleChart from "./components/BubbleChart";
 
 function App() {
-  const [chartData, setChartData] = useState(null);
+  const [chartData, setChartData] = useState(null);//set use state
 
   useEffect(()=>{
-    fetch('./downloads/financial_data.json')
+    fetch('/financial_data.json')//fetch file check for errors
     .then((response)=>{
       if(!response.ok){
         throw new Error("Failed to fetch");
@@ -24,7 +24,7 @@ function App() {
      });
   },[]);
 
-  if (!chartData){
+  if (!chartData){//loading when loading
     return <div>Loading...</div>
   }
   return(<div style={{textAlign: 'center'}}>

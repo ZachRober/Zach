@@ -1,7 +1,7 @@
 import React from "react";
 import ChartComponent from "./ChartComponent";
 
-const ScatterChart = ({ data }) => {
+const ScatterChart = ({ data }) => {//data passed as prop from json file in app
   const scatterChartData = {
     datasets: [
       {
@@ -28,7 +28,7 @@ const ScatterChart = ({ data }) => {
     },
   };
 
-  return <ChartComponent type="scatter" data={scatterChartData} options={scatterChartOptions} />;
+  return <ChartComponent type="scatter" data={scatterChartData} options={scatterChartOptions} />;//passing back as prop to chart component
 };
 
 export default ScatterChart;
