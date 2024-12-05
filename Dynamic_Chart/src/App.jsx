@@ -1,7 +1,9 @@
-import {Chart} from 'chart.js';
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './App.css'
-import ChartComponent from './components/ChartComponent';
+import LineChart from "./components/LineChart";
+import BarChart from './components/BarChart';
+import ScatterChart from "./components/ScatterChart";
+import BubbleChart from "./components/BubbleChart";
 
 function App() {
   const [chartData, setChartData] = useState(null);
@@ -20,10 +22,17 @@ function App() {
      .catch((error)=>{
       console.error(error);
      });
-  },[])
-  return(<div>
-    <h1>Charts</h1>
-    <ChartComponent data={chartData}/>
+  },[]);
+
+  if (!chartData){
+    return <div>Loading...</div>
+  }
+  return(<div style={{textAlign: 'center'}}>
+    <h1>Dynamic Charts</h1>
+    <BarChart data={chartData}/>
+    <LineChart data={chartData}/>
+    <ScatterChart data={chartData}/>
+    <BubbleChart data={chartData}/>
   </div>)
 }
 
